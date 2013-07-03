@@ -8,6 +8,12 @@ $name = $_POST['name'];
 $visitor_email = $_POST['email'];
 $message = $_POST['message'];
 
+
+$patient = $_POST['childname'];
+$today = $_POST['today'];
+$patientGuardian = $_POST['patientguardian'];
+
+
 //Validate first
 if(empty($name)||empty($visitor_email)) 
 {
@@ -22,11 +28,14 @@ if(IsInjected($visitor_email))
 }
 
 $email_from = 'jalbertbowden@gmail.com';//<== update the email address
-$email_subject = "New Form submission";
+$email_subject = "New Child Functional Assessment of AS, HFA and PDD Characteristics© Form Submission";
 $email_body = "You have received a new message from the user $name.\n".
-    "Here is the message:\n $message".
+	"Patient: $patient.\n".
+	"Date: $today\n".
+	"Guardian: $patientguardian.\n".
+	"Here is the message:\n $message".
     
-$to = "tom@amazing-designs.com";//<== update the email address
+$to = "jalbertbowden@gmail.com";//<== update the email address
 $headers = "From: $email_from \r\n";
 $headers .= "Reply-To: $visitor_email \r\n";
 //Send the email!
