@@ -15,29 +15,27 @@ $patientGuardian = $_POST['patientguardian'];
 
 
 //Validate first
-if(empty($name)||empty($visitor_email)) 
+if(empty($patient)||empty($patientGuardian)) 
 {
-    echo "Name and email are mandatory!";
+    echo "Patient and Guardian Names are required!";
     exit;
 }
-
-if(IsInjected($visitor_email))
-{
-    echo "Bad email value!";
-    exit;
-}
+// if(IsInjected($visitor_email))
+// {
+//    echo "Bad email value!";
+//    exit;
+// }
 
 $email_from = 'jalbertbowden@gmail.com';//<== update the email address
 $email_subject = "New Child Functional Assessment of AS, HFA and PDD Characteristics© Form Submission";
-$email_body = "You have received a new message from the user $name.\n".
+$email_body = "You have received a new message from the user $patientGuardian.\n".
 	"Patient: $patient.\n".
 	"Date: $today\n".
-	"Guardian: $patientguardian.\n".
-	"Here is the message:\n $message".
+	"Guardian: $patientGuardian.\n".
     
 $to = "jalbertbowden@gmail.com";//<== update the email address
 $headers = "From: $email_from \r\n";
-$headers .= "Reply-To: $visitor_email \r\n";
+// $headers .= "Reply-To: $visitor_email \r\n";
 //Send the email!
 mail($to,$email_subject,$email_body,$headers);
 //done. redirect to thank-you page.

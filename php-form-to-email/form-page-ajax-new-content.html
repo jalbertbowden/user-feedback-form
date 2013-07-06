@@ -17,9 +17,21 @@ else $today_filler = '';
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+{
+  //Attach a handler to the click event of the link on the page:
+  $(".next").click(function()
+    {
+    //Target the div with id of result and load the content from the specified url and the specified div element into it:
+      $('#result').load('ajax-content-demo.html #content');
+    });
+});
+</script>
   </head>
   <body>
     <form method="post" name="myemailform" action="form-to-email.php">
+      <fieldset id="result">
       <fieldset><legend>Contact Form</legend>
         <label for="childname">Childs Name: <span>*</span></label>
         <input type="text" name="childname" id="childname" autofocus="autofocus" placeholder="Child's Name" required="required" />
@@ -27,7 +39,8 @@ else $today_filler = '';
         <input type="text" name="today" id="today" value="<?php echo $today; ?>" placeholder="YYYY.MM.DD" required="required"  />
         <label for="patientguardian">Completed By: <span>*</span></label>
         <input type="text" id="patientguardiane" name="patientguardian" placeholder="Your Name" required="required" />
-        <!-- <button type="button" class="next" id="start">Next</button> -->
+        <button type="button" class="next" id="start">Next</button>
+      </fieldset>
       </fieldset>
     <input type="submit" name='submit' value="Submit" id="Submit" />
   </form>
