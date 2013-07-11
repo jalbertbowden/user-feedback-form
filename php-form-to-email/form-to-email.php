@@ -13,6 +13,11 @@ $patient = $_POST['childname'];
 $today = $_POST['today'];
 $patientGuardian = $_POST['patientguardian'];
 
+// section 01
+$sect01q01y = $_POST['s01q01y'];
+$sect01q01n = $_POST['s01q01n'];
+$sect01q01youtput = $_POST['inputrange0101current'];
+$sect01q01noutput = $_['inputrange0101past'];
 
 //Validate first
 if(empty($patient)||empty($patientGuardian)) 
@@ -32,6 +37,11 @@ $email_body = "You have received a new message from the user $patientGuardian.\n
 	"Patient: $patient.\n".
 	"Date: $today\n".
 	"Guardian: $patientGuardian.\n".
+	"Question 01 Y: $sect01q01y.\n".
+	"Question 01 N Output: $sect01q01youtput.\n".
+	"Question 01 N: $sect01q01n.\n".
+	"Question 01 N Output: $sect01q01noutput.\n";
+	
     
 $to = "jalbertbowden@gmail.com";//<== update the email address
 $headers = "From: $email_from \r\n";
