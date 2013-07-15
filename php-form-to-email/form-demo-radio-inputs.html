@@ -1,0 +1,94 @@
+<?php
+$header1 = "Child Functional Assessment of AS, HFA and PDD Characteristics©";
+
+
+$q01s01 = "Question 01";
+
+
+// get the date
+$today = date("Y.m.d");
+$_SESSION['today'] = $today;
+
+if (isset($_SESSION['today'])) $today_filler = $_SESSION['today'];
+else $today_filler = '';
+?>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title><?php echo $header1; ?></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <style>.reqerror{background-color:#00f; outline:2px dotted #eee; border:1px inset #e9e9e9}</style>
+<script>
+$(document).ready(function() {
+  // $(".formsections,.rangeboxxx").hide();
+  $(".formsections").hide();
+  
+  // hide submit button until form is done
+  $("#submit").hide();
+  $(".lastfieldset").click(function () {
+    $("#submit").show();
+  });
+
+  $("button").click(function () {
+    // var text = $(this).text();
+    // $("input").val(text);
+    if ($(".req").val() == ""){
+      $(".req").addClass("reqerror");
+    } else {
+      $("#firstfieldset").hide();
+      $("#secondfieldset").show();
+    }
+  });
+// var checkboxes = $("input[type='checkbox']"),
+//    submitButt = $("div.rangeboxxx");
+// checkboxes.click(function() {
+    // submitButt.attr("disabled", !checkboxes.is(":checked"));
+//    submitButt.attr("disabled", !checkboxes.is(":checked"));
+//});
+
+$("#q01s01y").click(function() {
+  $(".rangeboxxx")[this.checked ? "show" : "hide"]();
+});
+
+
+
+});
+</script>
+  </head>
+  <body>
+    <form method="post" name="myemailform" action="form-to-email.php">
+      <fieldset id="firstfieldset"><legend>Assessment Form User Information</legend>
+        <label for="childname">Childs Name: <span>*</span></label>
+        <input class="req" type="text" name="childname" id="childname" autofocus="autofocus" placeholder="Child's Name" required="required" />
+        <label for="today">Date: <span>*</span></label>
+        <input type="text" name="today" id="today" value="<?php echo $today; ?>" placeholder="YYYY.MM.DD" required="required"  />
+        <label for="patientguardian">Completed By: <span>*</span></label>
+        <input type="text" id="patientguardiane" name="patientguardian" placeholder="Your Name" required="required" />
+        <button type="button" class="next" id="start">Next</button>
+      </fieldset>
+      <fieldset id="secondfieldset" class="formsections"><legend>Assessment Section 01</legend>
+        <h2><?php echo $q01s01; ?></h2>
+        <div class="rangewrap">
+          <input type="radio" id="s01q01y" name="s01q01y" class="show" value="Yes" /><label for="s01q01y">Yes</label>
+          <div class="rangeboxxx" disabled="disabled">
+            <input id="inputrange0101current" name="inputrange0101current" type="range" min="0" max="10" value="0" />
+            <output for="inputrange0101current">0</output> <label for="inputrange0101current">Rating:</label>
+          </div>
+        </div>
+        <div class="rangewrap">
+          <input type="checkbox" id="s01q01n" name="s01q01n" class="show" value="No" /><label for="s01q01n">No</label>
+          <div class="rangeboxxx">
+            <input id="inputrange0101past" name="inputrange0101past" type="range" min="0" max="10" value="0" />
+            <output for="inputrange0101past">0</output> <label for="inputrange0101past">Rating:</label>
+          </div>
+        </div>
+        <button type="button" class="lastfieldset" id="button02">Next</button>
+      </fieldset>
+    <input type="submit" name="submit" value="Submit" id="submit" />
+  </form>
+    <p><a href='http://www.html-form-guide.com/email-form/php-form-to-email.html'>PHP form to email article page</a></p>
+    <p><a href="http://www.html-form-guide.com/php-form/php-order-form.html">PHP Order Form</a></p>
+  </body>
+</html>

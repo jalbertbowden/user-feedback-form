@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <style>
+
+  div { color:red; }
+
+  </style>
+
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+</head>
+
+<body>
+
+ 
+
+<form>
+
+ <fieldset>
+
+        <legend>Do you currently have SolidWorks</legend>
+
+
+
+        <ul>
+
+            <li><label for=""><input type="radio" name="solidworks" value="Yes" id="rdYes" /> Yes</label></li>
+
+            <li><label for=""><input type="radio" name="solidworks" value="No" id="rdNo" /> No</label></li>
+
+        </ul>
+
+    </fieldset>
+
+
+
+    <fieldset id="boxReseller" style="display:none;">
+
+        <legend>Who is your SolidWorks reseller?</legend>
+
+        <ul>
+
+            <li><label for=""><input type="radio" name="reseller" value="Cad Connect" /> Cad Connect</label></li>
+
+            <li><label for=""><input type="radio" name="reseller" value="Cadtek" /> Cadtek</label></li>
+
+            <li><label for=""><input type="radio" name="reseller" value="CCSL" /> CCSL</label></li>
+
+            <li><label for=""><input type="radio" name="reseller" value="Innova" /> Innova</label></li>
+
+            <li><label for=""><input type="radio" name="reseller" value="NT CAD/CAM" /> NT CAD/CAM</label></li>
+
+            <li><label for=""><input type="radio" name="reseller" value="Solid Engineer" /> Solid Engineer</label></li>
+
+            <li><label for=""><input type="radio" name="reseller" value="Solid Solutions Ireland" /> Solid Solutions Ireland</label></li>
+
+            <li><label for=""><input type="radio" name="reseller" value="Solid Solutions Management" /> Solid Solutions Management</label></li>
+
+            <li><label for=""><input type="radio" name="reseller" value="TMS Scotland" /> TMS Scotland</label></li>
+
+        </ul>
+
+
+
+    </fieldset>
+
+     <fieldset>
+       <legend>Question Block 01</legend>
+       <ul>
+         <li><h2>Question 01</h2></li>
+         <li><label for=""><input type="checkbox" name="question01" value="Yes" id="rdYes" /> Yes</label></li>
+         <li><label for=""><input type="checkbox" name="question01" value="No" id="rdNo" /> No</label></li>
+       </ul>
+
+    </fieldset>
+
+
+
+    <fieldset id="boxReseller1" style="display:none;">
+
+        <legend>Who is your SolidWorks reseller?</legend>
+
+        <ul>
+
+            <li><label for=""><input type="checkbox" name="reseller" value="Cad Connect" /> Cad Connect</label></li>
+
+            <li><label for=""><input type="checkbox" name="reseller" value="Cadtek" /> Cadtek</label></li>
+
+            <li><label for=""><input type="checkbox" name="reseller" value="CCSL" /> CCSL</label></li>
+
+            <li><label for=""><input type="checkbox" name="reseller" value="Innova" /> Innova</label></li>
+
+            <li><label for=""><input type="checkbox" name="reseller" value="NT CAD/CAM" /> NT CAD/CAM</label></li>
+
+            <li><label for=""><input type="checkbox" name="reseller" value="Solid Engineer" /> Solid Engineer</label></li>
+
+            <li><label for=""><input type="checkbox" name="reseller" value="Solid Solutions Ireland" /> Solid Solutions Ireland</label></li>
+
+            <li><label for=""><input type="checkbox" name="reseller" value="Solid Solutions Management" /> Solid Solutions Management</label></li>
+
+            <li><label for=""><input type="checkbox" name="reseller" value="TMS Scotland" /> TMS Scotland</label></li>
+        </ul>
+    </fieldset>
+</form>
+<div class="hidden"><h1>Hidden</h1></div>
+<div class="shown"><h1>Shown</h1></div>
+<div></div>
+
+.attr('checked') == false
+
+<script>
+
+$("input[name='question01']").change(function() {
+
+  $("#boxReseller").toggle(this.value == "Yes");
+
+});
+
+
+
+$("input[name='question02']").change(function() {
+
+  // $("#boxReseller1").toggle(this.value == "Yes");
+
+});
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function(){
+
+$(".hidden").hide();		
+
+$(":checkbox").change(function(){
+
+if($(this).is(':checked')) $("#boxReseller1").toggle();
+
+else $(".shown").hide();
+
+});
+
+});
+
+</script>
+
+ 
+
+</body>
+
+</html>
+
+
+
