@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+	
+	<title>Range Bubble</title>
+	
+	<link rel='stylesheet' href='style.css'>
+	
+	<style>
+
+	</style>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+	<script>
+	 $(function() {
+	   var el, newPoint, newPlace, offset;
+	   $("input[type='range']").change(function() {
+	     el = $(this);
+	     width = el.width();
+	     newPoint = (el.val() - el.attr("min")) / (el.attr("max") - el.attr("min"));
+	     offset = -1.3;
+	     if (newPoint < 0) { newPlace = 0;  }
+	     else if (newPoint > 1) { newPlace = width; }
+	     else { newPlace = width * newPoint + offset; offset -= newPoint;}
+	     el
+	       .next("output")
+	       .css({
+	         left: newPlace,
+	         marginLeft: offset + "%"
+	       })
+	       .text(el.val());
+	   })
+	   .trigger('change');
+	 });
+	</script>
+</head>
+
+<body>
+
+	<div id="page-wrap">
+	
+	<h1>Range Input Bubbles</h1>
+	
+	<form>
+	  <div>
+      <input id="jim" name="jim" type="range" min=1 max=100 value=1>
+      <output for="jim">1</output>
+    </div>
+    <div>
+      <input id="bob" name="bob" type="range" min=23 max=109 value=93 style="width: 40%;">
+      <output for="bob">1</output>
+    </div>
+    <div>
+      <input id="sue" name="sue" type="range" min=50 max=250 value=50 step=15 style="width: 60%;">
+      <output for="sue">1</output>
+    </div>
+  </form>	
+	
+	</div>
+	
+</body>
+
+</html>
