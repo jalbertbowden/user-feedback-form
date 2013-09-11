@@ -12,10 +12,10 @@ require_once __DIR__."/functions.php";
  * Configure Idiorm
  */
 
-$db_host = 'external-db.s45373.gridserver.com';
-$db_name = 'db45373_s_r_s';
-$db_user = 'db45373_jalbert';
-$db_pass = '69work666';
+$db_host = "";
+$db_name = "";
+$db_user = "";
+$db_pass = "";
 
 ORM::configure("mysql:host=$db_host;dbname=$db_name");
 ORM::configure("username", $db_user);
